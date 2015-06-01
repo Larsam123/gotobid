@@ -1,0 +1,79 @@
+<!-- Responsive panel example-->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Proposal #<%= @proposal.id %></h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <dl class="dl-horizontal">
+              <dt>Proposal</dt>
+              <dd><%= @proposal.proposal_id %></dd>
+
+              <dt>User</dt>
+              <dd><%= @proposal.user_id %></dd>
+
+              <dt>User id vendor</dt>
+              <dd><%= @proposal.user_id_vendor %></dd>
+
+              <dt>Win</dt>
+              <dd><%= @proposal.win %></dd>
+
+              <dt>User request val</dt>
+              <dd><%= @proposal.user_request_val %></dd>
+
+              <dt>Proposal rfp val</dt>
+              <dd><%= @proposal.proposal_rfp_val %></dd>
+
+              <dt>Product</dt>
+              <dd><%= @proposal.product_id %></dd>
+
+              <dt>Size</dt>
+              <dd><%= @proposal.size_id %></dd>
+
+              <dt>Color</dt>
+              <dd><%= @proposal.color_id %></dd>
+
+              <dt>Quantity</dt>
+              <dd><%= @proposal.quantity %></dd>
+
+              <dt>User request price</dt>
+              <dd><%= @proposal.user_request_price %></dd>
+
+              <dt>Proposal rfp price</dt>
+              <dd><%= @proposal.proposal_rfp_price %></dd>
+
+              <dt>Material</dt>
+              <dd><%= @proposal.material_id %></dd>
+
+              <dt>Start date</dt>
+              <dd><%= @proposal.start_date %></dd>
+
+              <dt>End date</dt>
+              <dd><%= @proposal.end_date %></dd>
+
+            </dl>
+            <div class="btn-group btn-group-justified">
+              <a href="/proposals" class="btn btn-primary">
+                <i class="fa fa-chevron-left"></i>
+              </a>
+
+              <a href="/proposals/<%= @proposal.id %>/edit" class="btn btn-warning">
+                <i class="fa fa-edit"></i>
+              </a>
+
+              <a href="/delete_proposal/<%= @proposal.id %>" class="btn btn-danger" rel="nofollow">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->
