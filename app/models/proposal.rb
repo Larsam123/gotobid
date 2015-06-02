@@ -1,7 +1,7 @@
 class Proposal < ActiveRecord::Base
 
 
-  has_many :users
+  belongs_to :user
   has_many :proposalprods
 
   has_many :products, :through => :proposalprods

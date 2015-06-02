@@ -4,7 +4,7 @@
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Proposal #<%= @proposal.id %></h3>
+        <h3 class="panel-title">Your Proposal</h3>
       </div>
       <div class="panel-body">
         <div class="row">
@@ -14,19 +14,10 @@
               <dd><%= @proposal.proposal_id %></dd>
 
               <dt>User</dt>
-              <dd><%= @proposal.user_id %></dd>
+              <dd><%= @proposal.user.email %></dd>
 
-              <dt>User id vendor</dt>
-              <dd><%= @proposal.user_id_vendor %></dd>
-
-              <dt>Win</dt>
-              <dd><%= @proposal.win %></dd>
-
-              <dt>User request val</dt>
+              <dt>Ideal weekly bill</dt>
               <dd><%= @proposal.user_request_val %></dd>
-
-              <dt>Proposal rfp val</dt>
-              <dd><%= @proposal.proposal_rfp_val %></dd>
 
               <dt>Start date</dt>
               <dd><%= @proposal.start_date %></dd>
