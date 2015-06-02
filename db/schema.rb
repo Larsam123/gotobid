@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150601203000) do
+ActiveRecord::Schema.define(version: 20150601204317) do
 
   create_table "ars", force: :cascade do |t|
     t.integer  "user_id"
@@ -45,13 +45,9 @@ ActiveRecord::Schema.define(version: 20150601203000) do
     t.datetime "updated_at"
   end
 
-  create_table "proposals", force: :cascade do |t|
+  create_table "proposalprods", force: :cascade do |t|
+    t.integer  "proposalprod_id"
     t.integer  "proposal_id"
-    t.integer  "user_id"
-    t.integer  "user_id_vendor"
-    t.boolean  "win"
-    t.float    "user_request_val"
-    t.float    "proposal_rfp_val"
     t.integer  "product_id"
     t.integer  "size_id"
     t.integer  "color_id"
@@ -59,6 +55,17 @@ ActiveRecord::Schema.define(version: 20150601203000) do
     t.float    "user_request_price"
     t.float    "proposal_rfp_price"
     t.integer  "material_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "proposals", force: :cascade do |t|
+    t.integer  "proposal_id"
+    t.integer  "user_id"
+    t.integer  "user_id_vendor"
+    t.boolean  "win"
+    t.float    "user_request_val"
+    t.float    "proposal_rfp_val"
     t.date     "start_date"
     t.date     "end_date"
     t.datetime "created_at"

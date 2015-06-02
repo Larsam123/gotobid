@@ -1,0 +1,114 @@
+<!-- Validation failure messages -->
+
+<% if @proposalprods.errors.any? %>
+  <% @proposalprods.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Responsive panel example -->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Add your products</h3>
+      </div>
+      <div class="panel-body">
+        <form action="/create_proposalprods" method="post" class="form-horizontal">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <!-- Label and input for product_id -->
+          <div class="form-group">
+            <label for="proposal_id" class="col-sm-2 control-label">
+              Proposal_id
+            </label>
+            <div class="col-sm-10">
+               <%= select_tag(:proposal_id, options_from_collection_for_select(Proposal.all, :id, :proposal_id, @proposalprods.proposal_id), :class => "form-control") %>
+            </div>
+          </div>
+
+
+
+          <!-- Label and input for product_id -->
+          <div class="form-group">
+            <label for="product_id" class="col-sm-2 control-label">
+              Product
+            </label>
+            <div class="col-sm-10">
+               <%= select_tag(:product_id, options_from_collection_for_select(Product.all, :product_id, :product_desc, @proposalprods.product_id), :class => "form-control") %>
+            </div>
+          </div>
+
+          <!-- Label and input for size_id -->
+          <div class="form-group">
+            <label for="size_id" class="col-sm-2 control-label">
+              Size
+            </label>
+            <div class="col-sm-10">
+               <%= select_tag(:size_id, options_from_collection_for_select(Size.all, :size_id, :size_desc, @proposalprods.size_id), :class => "form-control") %>
+            </div>
+          </div>
+
+          <!-- Label and input for color_id -->
+          <div class="form-group">
+            <label for="color_id" class="col-sm-2 control-label">
+              Color
+            </label>
+            <div class="col-sm-10">
+               <%= select_tag(:color_id, options_from_collection_for_select(Color.all, :color_id, :color_desc, @proposalprods.color_id), :class => "form-control") %>
+            </div>
+          </div>
+
+          <!-- Label and input for material_id -->
+          <div class="form-group">
+            <label for="material_id" class="col-sm-2 control-label">
+              Material
+            </label>
+            <div class="col-sm-10">
+               <%= select_tag(:material_id, options_from_collection_for_select(Material.all, :material_id, :material_desc, @proposalprods.material_id), :class => "form-control") %>
+           </div>
+          </div>
+
+
+          <!-- Label and input for quantity -->
+          <div class="form-group">
+            <label for="quantity" class="col-sm-2 control-label">
+              Quantity
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="quantity" name="quantity" placeholder="Quantity" class="form-control" value="<%= @proposalprods.quantity %>">
+            </div>
+          </div>
+
+          <!-- Label and input for user_request_price -->
+          <div class="form-group">
+            <label for="user_request_price" class="col-sm-2 control-label">
+              User request price
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="user_request_price" name="user_request_price" placeholder="User request price" class="form-control" value="<%= @proposalprods.user_request_price %>">
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button class="btn btn-success">
+                Add Products
+              </button>
+              or
+              <a href="/">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->

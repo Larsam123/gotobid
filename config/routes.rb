@@ -103,6 +103,22 @@ Rails.application.routes.draw do
   get "/delete_proposal/:id", :controller => "proposals", :action => "destroy"
   #------------------------------
 
+  # Routes for the Proposalprods resource:
+  # CREATE
+  get "/proposalprods/new", :controller => "proposalprods", :action => "new"
+  post "/create_proposalprods", :controller => "proposalprods", :action => "create"
+
+  # READ
+  get "/proposalprods", :controller => "proposalprods", :action => "index"
+  get "/proposalprods/:id", :controller => "proposalprods", :action => "show"
+
+  # UPDATE
+  get "/proposalprods/:id/edit", :controller => "proposalprods", :action => "edit"
+  post "/update_proposal/:id", :controller => "proposalprods", :action => "update"
+
+  # DELETE
+  get "/delete_proposal/:id", :controller => "proposalprods", :action => "destroy"
+  #------------------------------
   devise_for :users
   root 'home#index'
 

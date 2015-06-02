@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>
-    Proposals
-    <a href="/proposals/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
+    Proposalprods
+    <a href="/proposalprods/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
   </h1>
 </div>
 
@@ -9,14 +9,14 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <input type="text" id="quicksearch" placeholder="Search Proposals (start typing)" class="form-control">
+    <input type="text" id="quicksearch" placeholder="Search Proposalprods (start typing)" class="form-control">
   </div>
 </div>
 
 <hr>
 
 <div class="row isotope-container">
-<% @proposal.each do |proposal| %>
+<% @proposalprods.each do |proposal| %>
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -27,26 +27,23 @@
           <dt>Proposal</dt>
           <dd><%= proposal.proposal_id %></dd>
 
-          <dt>User</dt>
-          <dd><%= proposal.user_id %></dd>
+          <dt>Product</dt>
+          <dd><%= proposal.product_id %></dd>
 
-          <dt>User id vendor</dt>
-          <dd><%= proposal.user_id_vendor %></dd>
+          <dt>Size</dt>
+          <dd><%= proposal.size_id %></dd>
 
-          <dt>Win</dt>
-          <dd><%= proposal.win %></dd>
+          <dt>Color</dt>
+          <dd><%= proposal.color_id %></dd>
 
-          <dt>User request val</dt>
-          <dd><%= proposal.user_request_val %></dd>
+          <dt>Material</dt>
+          <dd><%= proposal.material_id %></dd>
 
-          <dt>Proposal rfp val</dt>
-          <dd><%= proposal.proposal_rfp_val %></dd>
+          <dt>Quantity</dt>
+          <dd><%= proposal.quantity %></dd>
 
-          <dt>Start date</dt>
-          <dd><%= proposal.start_date %></dd>
-
-          <dt>End date</dt>
-          <dd><%= proposal.end_date %></dd>
+          <dt>Requested Price</dt>
+          <dd><%= proposal.user_request_price %></dd>
 
         </dl>
         <div class="btn-group btn-group-justified">

@@ -28,27 +28,6 @@
               <dt>Proposal rfp val</dt>
               <dd><%= @proposal.proposal_rfp_val %></dd>
 
-              <dt>Product</dt>
-              <dd><%= @proposal.product_id %></dd>
-
-              <dt>Size</dt>
-              <dd><%= @proposal.size_id %></dd>
-
-              <dt>Color</dt>
-              <dd><%= @proposal.color_id %></dd>
-
-              <dt>Quantity</dt>
-              <dd><%= @proposal.quantity %></dd>
-
-              <dt>User request price</dt>
-              <dd><%= @proposal.user_request_price %></dd>
-
-              <dt>Proposal rfp price</dt>
-              <dd><%= @proposal.proposal_rfp_price %></dd>
-
-              <dt>Material</dt>
-              <dd><%= @proposal.material_id %></dd>
-
               <dt>Start date</dt>
               <dd><%= @proposal.start_date %></dd>
 
@@ -72,8 +51,21 @@
           </div>
         </div>
       </div>
+
+      <ul class="list-group">
+        <% @proposal.proposalprods.each do |pp| %>
+        <li class="list-group-item">
+          <%= pp.product_id %>
+        </li>
+        <% end %>
+      </ul>
+
+
+
     </div>
   </div>
 </div>
 
 <!-- End responsive panel example -->
+
+

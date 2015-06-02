@@ -1,5 +1,5 @@
 class Material < ActiveRecord::Base
 
-  belongs_to :proposal
+  belongs_to :proposalprod
 
 end
