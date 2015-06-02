@@ -23,7 +23,7 @@ class ProposalsController < ApplicationController
     @proposal.end_date = params[:end_date]
 
     if @proposal.save
-      redirect_to "/", :notice => "Time to add your products"
+      redirect_to "/proposalprods/new", :notice => "Time to add your products"
     else
       render 'new'
     end
@@ -46,7 +46,7 @@ class ProposalsController < ApplicationController
     @proposal.end_date = params[:end_date]
 
     if @proposal.save
-      redirect_to "/proposals", :notice => "Proposal updated successfully."
+      redirect_to "/proposal", :notice => "Proposal updated successfully."
     else
       render 'edit'
     end

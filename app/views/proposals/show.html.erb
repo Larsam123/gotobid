@@ -35,19 +35,7 @@
               <dd><%= @proposal.end_date %></dd>
 
             </dl>
-            <div class="btn-group btn-group-justified">
-              <a href="/proposals" class="btn btn-primary">
-                <i class="fa fa-chevron-left"></i>
-              </a>
 
-              <a href="/proposals/<%= @proposal.id %>/edit" class="btn btn-warning">
-                <i class="fa fa-edit"></i>
-              </a>
-
-              <a href="/delete_proposal/<%= @proposal.id %>" class="btn btn-danger" rel="nofollow">
-                <i class="fa fa-trash-o"></i>
-              </a>
-            </div>
           </div>
         </div>
       </div>
@@ -85,7 +73,19 @@
 
 
 
+      <div class="btn-group btn-group-justified">
+              <a href="/proposals" class="btn btn-primary">
+                <i class="fa fa-chevron-left"></i>
+              </a>
 
+              <a href="/proposals/<%= @proposal.id %>/edit" class="btn btn-warning">
+                <i class="fa fa-edit"></i>
+              </a>
+
+              <a href="/delete_proposal/<%= @proposal.id %>" class="btn btn-danger" rel="nofollow">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            </div>
 
 
     </div>

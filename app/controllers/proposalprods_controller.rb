@@ -1,18 +1,18 @@
 class ProposalprodsController < ApplicationController
   def index
-    @proposalprods = Proposalprods.all
+    @proposalprods = Proposalprod.all
   end
 
   def show
-    @proposalprods = Proposalprods.find(params[:id])
+    @proposalprods = Proposalprod.find(params[:id])
   end
 
   def new
-    @proposalprods = Proposalprods.new
+    @proposalprods = Proposalprod.new
   end
 
   def create
-    @proposalprods = Proposalprods.new
+    @proposalprods = Proposalprod.new
     @proposalprods.proposal_id = params[:proposal_id]
     @proposalprods.product_id = params[:product_id]
     @proposalprods.size_id = params[:size_id]
@@ -23,18 +23,18 @@ class ProposalprodsController < ApplicationController
     @proposalprods.material_id = params[:material_id]
 
     if @proposalprods.save
-      redirect_to "/proposals/", :notice => "proposalprods created successfully."
+      redirect_to "/", :notice => "proposalprods created successfully."
     else
       render 'new'
     end
   end
 
   def edit
-    @proposalprods = Proposalprods.find(params[:id])
+    @proposalprods = Proposalprod.find(params[:id])
   end
 
   def update
-    @proposalprods = Proposalprods.find(params[:id])
+    @proposalprods = Proposalprod.find(params[:id])
 
     @proposalprods.proposalprods_id = params[:proposalprods_id]
     @proposalprods.product_id = params[:product_id]
@@ -46,17 +46,17 @@ class ProposalprodsController < ApplicationController
     @proposalprods.material_id = params[:material_id]
 
     if @proposalprods.save
-      redirect_to "/proposalprodss", :notice => "proposalprods updated successfully."
+      redirect_to "/proposalprods", :notice => "proposalprods updated successfully."
     else
       render 'edit'
     end
   end
 
   def destroy
-    @proposalprods = Proposalprods.find(params[:id])
+    @proposalprods = Proposalprod.find(params[:id])
 
     @proposalprods.destroy
 
-    redirect_to "/proposalprodss", :notice => "proposalprods deleted."
+    redirect_to "/proposalprods", :notice => "proposalprods deleted."
   end
 end
