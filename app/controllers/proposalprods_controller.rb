@@ -23,7 +23,7 @@ class ProposalprodsController < ApplicationController
     @proposalprods.material_id = params[:material_id]
 
     if @proposalprods.save
-      redirect_to "/", :notice => "proposalprods created successfully."
+      redirect_to "/proposals/#{@proposalprods.proposal_id}", :notice => "proposalprods created successfully."
     else
       render 'new'
     end

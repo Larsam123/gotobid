@@ -5,6 +5,7 @@ class ProposalsController < ApplicationController
 
   def show
     @proposal = Proposal.find(params[:id])
+    @proposalprods = Proposalprod.new
   end
 
   def new
@@ -23,7 +24,7 @@ class ProposalsController < ApplicationController
     @proposal.end_date = params[:end_date]
 
     if @proposal.save
-      redirect_to "/proposalprods/new", :notice => "Time to add your products"
+      redirect_to "/proposals/:id", :notice => "Time to add your products"
     else
       render 'new'
     end
