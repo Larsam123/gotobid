@@ -1,5 +1,5 @@
 class Size < ActiveRecord::Base
 
-  belongs_to :proposalprod
+  has_many :proposalprod
 
 end

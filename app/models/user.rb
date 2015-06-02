@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-   belongs_to :proposal
+  has_many :proposal
 
 end

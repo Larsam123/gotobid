@@ -52,13 +52,39 @@
         </div>
       </div>
 
-      <ul class="list-group">
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Requested products</div>
+
+        <!-- Table -->
+        <table class="table">
+          <tr>
+            <th>Product</th>
+            <th>Color</th>
+            <th>Size</th>
+            <th>Material</th>
+            <th>Quantity</th>
+            <th>Requested price</th>
+          </tr>
+
         <% @proposal.proposalprods.each do |pp| %>
-        <li class="list-group-item">
-          <%= pp.product_id %>
-        </li>
+          <tr>
+            <th><%= pp.product.product_desc %></th>
+            <th><%= pp.color.color_desc %></th>
+            <th><%= pp.size.size_desc %></th>
+            <th><%= pp.material.material_desc %></th>
+            <th><%= pp.quantity %></th>
+            <th><%= pp.user_request_price %>
+
+
+          </tr>
         <% end %>
-      </ul>
+        </table>
+      </div>
+
+
+
+
 
 
 
