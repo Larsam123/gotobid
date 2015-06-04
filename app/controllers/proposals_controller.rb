@@ -24,7 +24,7 @@ class ProposalsController < ApplicationController
     @proposal.end_date = params[:end_date]
 
     if @proposal.save
-      redirect_to "/proposals/:id", :notice => "Time to add your products"
+      redirect_to "/proposals/#{@proposal.id}", :notice => "Time to add your products"
     else
       render 'new'
     end

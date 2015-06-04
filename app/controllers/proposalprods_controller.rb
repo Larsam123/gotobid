@@ -36,7 +36,6 @@ class ProposalprodsController < ApplicationController
   def update
     @proposalprods = Proposalprod.find(params[:id])
 
-    @proposalprods.proposalprods_id = params[:proposalprods_id]
     @proposalprods.product_id = params[:product_id]
     @proposalprods.size_id = params[:size_id]
     @proposalprods.color_id = params[:color_id]
@@ -46,7 +45,7 @@ class ProposalprodsController < ApplicationController
     @proposalprods.material_id = params[:material_id]
 
     if @proposalprods.save
-      redirect_to "/proposalprods", :notice => "proposalprods updated successfully."
+      redirect_to "/proposals/#{@proposalprods.proposal_id}", :notice => "proposalprods updated successfully."
     else
       render 'edit'
     end
@@ -55,8 +54,10 @@ class ProposalprodsController < ApplicationController
   def destroy
     @proposalprods = Proposalprod.find(params[:id])
 
+    @proposal_id = @proposalprods.proposal_id
+
     @proposalprods.destroy
 
-    redirect_to "/proposalprods", :notice => "proposalprods deleted."
+    redirect_to "/proposals/#{@proposal_id}", :notice => "proposalprods deleted."
   end
 end

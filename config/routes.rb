@@ -114,10 +114,10 @@ Rails.application.routes.draw do
 
   # UPDATE
   get "/proposalprods/:id/edit", :controller => "proposalprods", :action => "edit"
-  post "/update_proposal/:id", :controller => "proposalprods", :action => "update"
+  post "/update_proposalprods/:id", :controller => "proposalprods", :action => "update"
 
   # DELETE
-  get "/delete_proposal/:id", :controller => "proposalprods", :action => "destroy"
+  get "/delete_proposalprods/:id", :controller => "proposalprods", :action => "destroy"
   #------------------------------
   devise_for :users
   root 'home#index'

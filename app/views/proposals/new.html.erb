@@ -26,20 +26,20 @@
 
           <!-- Label and input for start_date -->
           <div class="form-group">
-            <label for="start_date" class="col-sm-2 control-label">
-              Requested service start date
+            <label for="start_date" class="col-sm-4 control-label">
+              Requested start date
             </label>
-            <div class="col-sm-10">
+            <div class="col-sm-8">
               <input type="text" id="start_date" name="start_date" placeholder="Requested service start date" class="form-control" value="<%= @proposal.start_date %>">
             </div>
           </div>
 
           <!-- Label and input for end_date -->
           <div class="form-group">
-            <label for="end_date" class="col-sm-2 control-label">
-              Requested service end date
+            <label for="end_date" class="col-sm-4 control-label">
+              Requested end date
             </label>
-            <div class="col-sm-10">
+            <div class="col-sm-8">
               <input type="text" id="end_date" name="end_date" placeholder="Requested service end date" class="form-control" value="<%= @proposal.end_date %>">
             </div>
           </div>
@@ -48,10 +48,10 @@
 
           <!-- Label and input for user_request_val -->
           <div class="form-group">
-            <label for="user_request_val" class="col-sm-2 control-label">
-              What weekly cost would be fair for your requested service?
+            <label for="user_request_val" class="col-sm-4 control-label">
+              What is your ideal weekly bill?
             </label>
-            <div class="col-sm-10">
+            <div class="col-sm-8">
               <input type="text" id="user_request_val" name="user_request_val" placeholder="Ideal weekly invoice amount" class="form-control" value="<%= @proposal.user_request_val %>">
             </div>
           </div>
@@ -62,7 +62,7 @@
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
               <button class="btn btn-success">
-                Add Products
+                Create proposal
               </button>
               or
               <a href="/">Cancel</a>
