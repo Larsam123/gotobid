@@ -118,9 +118,18 @@ Rails.application.routes.draw do
 
   # DELETE
   get "/delete_proposalprods/:id", :controller => "proposalprods", :action => "destroy"
+
+  # Routes for the About resource:
+  # CREATE
+  get "/abouts", :controller => "abouts", :action => "index"
+
+
+
   #------------------------------
+
+
   devise_for :users
-  root 'home#index'
+  root 'abouts#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

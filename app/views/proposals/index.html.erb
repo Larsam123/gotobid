@@ -24,23 +24,11 @@
       </div>
       <div class="panel-body">
         <dl>
-          <dt>Proposal</dt>
-          <dd><%= proposal.proposal_id %></dd>
-
           <dt>User</dt>
-          <dd><%= proposal.user_id %></dd>
+          <dd><%= proposal.user.email %></dd>
 
-          <dt>User id vendor</dt>
-          <dd><%= proposal.user_id_vendor %></dd>
-
-          <dt>Win</dt>
-          <dd><%= proposal.win %></dd>
-
-          <dt>User request val</dt>
+          <dt>Requested weekly bill</dt>
           <dd><%= proposal.user_request_val %></dd>
-
-          <dt>Proposal rfp val</dt>
-          <dd><%= proposal.proposal_rfp_val %></dd>
 
           <dt>Start date</dt>
           <dd><%= proposal.start_date %></dd>
