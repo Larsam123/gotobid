@@ -8,8 +8,6 @@ class User < ActiveRecord::Base
   validates :address, :presence => true
   validates :email, :presence => true
   validates :phone, :presence => true
-  validates :sic, :presence => true
-
 
   has_many :proposals
 

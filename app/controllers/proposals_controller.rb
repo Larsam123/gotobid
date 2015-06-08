@@ -1,6 +1,31 @@
 class ProposalsController < ApplicationController
+
+  before_action :ensure_user, :only => [:update, :destroy, :show, :edit]
+
+  def ensure_user
+    @proposal = Proposal.find(params[:id])
+
+    if  @proposal.user_id != current_user.id
+      redirect_to root_url, :alert => "Please sign in"
+    end
+  end
+
   def index
-    @proposal = Proposal.all
+    if  current_user.id != nil and current_user.vendor != true
+      @proposal = current_user.proposals.where(:win => false).all
+    elsif current_user.vendor == true
+      @proposal = Proposal.where(:win => false).all
+    end
+
+
+    if  current_user.id != nil and current_user.vendor != true
+      @proposal_won = current_user.proposals.where(:win => true).all
+    elsif current_user.vendor == true
+      @proposal_won = Proposal.where(:win => true, :user_id_vendor => current_user.id ).all
+    end
+
+
+    @user = current_user
   end
 
   def show
