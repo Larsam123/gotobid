@@ -109,6 +109,9 @@
       }
     </script>
 
+
+<!-- Start of Vendor Section -->
+
 <% else %>
     <div class="page-header">
       <h1>Review Proposals</h1>
@@ -144,7 +147,7 @@
           <td><%= proposal.user_request_val %></td>
           <td><%= proposal.start_date %></td>
           <td><%= proposal.end_date %></td>
-          <td><a href="/proposals/<%= proposal.id %>/edit" class="btn btn-warning">
+          <td><a href="/proposals/<%= proposal.id %>" class="btn btn-warning">
                 <i class="fa fa-edit"></i>
               </a></td>
         </tr>
@@ -174,8 +177,8 @@
           <td><%= proposal.user_request_val %></td>
           <td><%= proposal.start_date %></td>
           <td><%= proposal.end_date %></td>
-          <td><a href="/proposals/<%= proposal.id %>/edit" class="btn btn-warning">
-                <i class="fa fa-edit"></i>
+          <td><a href="/proposals/<%= proposal.id %>" class="btn btn-primary">
+                <i class="fa fa-plus"></i>
               </a></td>
         </tr>
     <% end %>

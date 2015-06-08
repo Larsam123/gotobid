@@ -22,137 +22,6 @@
           <!-- Hidden input for authenticity token to protect from forgery -->
           <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-          <!-- Label and input for proposal_id -->
-          <div class="form-group">
-            <label for="proposal_id" class="col-sm-2 control-label">
-              Proposal
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="proposal_id" name="proposal_id" placeholder="Proposal" class="form-control" value="<%= @proposal.proposal_id %>">
-            </div>
-          </div>
-
-          <!-- Label and input for user_id -->
-          <div class="form-group">
-            <label for="user_id" class="col-sm-2 control-label">
-              User
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @proposal.user_id %>">
-            </div>
-          </div>
-
-          <!-- Label and input for user_id_vendor -->
-          <div class="form-group">
-            <label for="user_id_vendor" class="col-sm-2 control-label">
-              User id vendor
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="user_id_vendor" name="user_id_vendor" placeholder="User id vendor" class="form-control" value="<%= @proposal.user_id_vendor %>">
-            </div>
-          </div>
-
-          <!-- Label and input for win -->
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <div class="checkbox">
-                <label for="win">
-                  <input type="checkbox" id="win" name="win" value="1" <%= "checked" if @proposal.win %>>
-                  Win
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <!-- Label and input for user_request_val -->
-          <div class="form-group">
-            <label for="user_request_val" class="col-sm-2 control-label">
-              User request val
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="user_request_val" name="user_request_val" placeholder="User request val" class="form-control" value="<%= @proposal.user_request_val %>">
-            </div>
-          </div>
-
-          <!-- Label and input for proposal_rfp_val -->
-          <div class="form-group">
-            <label for="proposal_rfp_val" class="col-sm-2 control-label">
-              Proposal rfp val
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="proposal_rfp_val" name="proposal_rfp_val" placeholder="Proposal rfp val" class="form-control" value="<%= @proposal.proposal_rfp_val %>">
-            </div>
-          </div>
-
-          <!-- Label and input for product_id -->
-          <div class="form-group">
-            <label for="product_id" class="col-sm-2 control-label">
-              Product
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="product_id" name="product_id" placeholder="Product" class="form-control" value="<%= @proposal.product_id %>">
-            </div>
-          </div>
-
-          <!-- Label and input for size_id -->
-          <div class="form-group">
-            <label for="size_id" class="col-sm-2 control-label">
-              Size
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="size_id" name="size_id" placeholder="Size" class="form-control" value="<%= @proposal.size_id %>">
-            </div>
-          </div>
-
-          <!-- Label and input for color_id -->
-          <div class="form-group">
-            <label for="color_id" class="col-sm-2 control-label">
-              Color
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="color_id" name="color_id" placeholder="Color" class="form-control" value="<%= @proposal.color_id %>">
-            </div>
-          </div>
-
-          <!-- Label and input for quantity -->
-          <div class="form-group">
-            <label for="quantity" class="col-sm-2 control-label">
-              Quantity
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="quantity" name="quantity" placeholder="Quantity" class="form-control" value="<%= @proposal.quantity %>">
-            </div>
-          </div>
-
-          <!-- Label and input for user_request_price -->
-          <div class="form-group">
-            <label for="user_request_price" class="col-sm-2 control-label">
-              User request price
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="user_request_price" name="user_request_price" placeholder="User request price" class="form-control" value="<%= @proposal.user_request_price %>">
-            </div>
-          </div>
-
-          <!-- Label and input for proposal_rfp_price -->
-          <div class="form-group">
-            <label for="proposal_rfp_price" class="col-sm-2 control-label">
-              Proposal rfp price
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="proposal_rfp_price" name="proposal_rfp_price" placeholder="Proposal rfp price" class="form-control" value="<%= @proposal.proposal_rfp_price %>">
-            </div>
-          </div>
-
-          <!-- Label and input for material_id -->
-          <div class="form-group">
-            <label for="material_id" class="col-sm-2 control-label">
-              Material
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="material_id" name="material_id" placeholder="Material" class="form-control" value="<%= @proposal.material_id %>">
-            </div>
-          </div>
 
           <!-- Label and input for start_date -->
           <div class="form-group">
@@ -174,72 +43,15 @@
             </div>
           </div>
 
-
-
-
-
-
-          <!-- Label and input for product_id -->
+         <!-- Label and input for user_request_val -->
           <div class="form-group">
-            <label for="product_id" class="col-sm-2 control-label">
-              Product
+            <label for="user_request_val" class="col-sm-2 control-label">
+              User request val
             </label>
             <div class="col-sm-10">
-               <%= select_tag(:product_id, options_from_collection_for_select(Product.all, :product_id, :product_desc, @proposal.product_id), :class => "form-control") %>
+              <input type="text" id="user_request_val" name="user_request_val" placeholder="User request val" class="form-control" value="<%= @proposal.user_request_val %>">
             </div>
           </div>
-
-          <!-- Label and input for size_id -->
-          <div class="form-group">
-            <label for="size_id" class="col-sm-2 control-label">
-              Size
-            </label>
-            <div class="col-sm-10">
-               <%= select_tag(:size_id, options_from_collection_for_select(Size.all, :size_id, :size_desc, @proposal.size_id), :class => "form-control") %>
-            </div>
-          </div>
-
-          <!-- Label and input for color_id -->
-          <div class="form-group">
-            <label for="color_id" class="col-sm-2 control-label">
-              Color
-            </label>
-            <div class="col-sm-10">
-               <%= select_tag(:color_id, options_from_collection_for_select(Color.all, :color_id, :color_desc, @proposal.color_id), :class => "form-control") %>
-            </div>
-          </div>
-
-          <!-- Label and input for material_id -->
-          <div class="form-group">
-            <label for="material_id" class="col-sm-2 control-label">
-              Material
-            </label>
-            <div class="col-sm-10">
-               <%= select_tag(:material_id, options_from_collection_for_select(Material.all, :material_id, :material_desc, @proposal.material_id), :class => "form-control") %>
-           </div>
-          </div>
-
-
-          <!-- Label and input for quantity -->
-          <div class="form-group">
-            <label for="quantity" class="col-sm-2 control-label">
-              Quantity
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="quantity" name="quantity" placeholder="Quantity" class="form-control" value="<%= @proposal.quantity %>">
-            </div>
-          </div>
-
-          <!-- Label and input for user_request_price -->
-          <div class="form-group">
-            <label for="user_request_price" class="col-sm-2 control-label">
-              User request price
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="user_request_price" name="user_request_price" placeholder="User request price" class="form-control" value="<%= @proposal.user_request_price %>">
-            </div>
-          </div>
-
 
 
           <div class="form-group">

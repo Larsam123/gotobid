@@ -3,6 +3,7 @@ class CreateProposalprods < ActiveRecord::Migration
     create_table :proposalprods do |t|
       t.integer :proposalprod_id
       t.integer :proposal_id
+      t.integer :user_id
       t.integer :product_id
       t.integer :size_id
       t.integer :color_id
