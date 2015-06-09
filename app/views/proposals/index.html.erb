@@ -60,6 +60,39 @@
     <% end %>
     </div>
 
+
+    <hr>
+
+    <div class="container">
+    <h2>Closed proposals</h2>
+      <table class="table table-striped">
+        <tr>
+          <th>Contact</th>
+          <th>Delivery Address</th>
+          <th>Start date</th>
+          <th>End date</th>
+          <th>Vendor</th>
+          <th>Vendor phone</th>
+          <th>Review contract</th>
+        </tr>
+
+    <% @proposal_won.each do |proposal| %>
+
+        <tr>
+          <td><%= proposal.user.username %></td>
+          <td><%= proposal.user.address %></td>
+          <td><%= proposal.start_date %></td>
+          <td><%= proposal.end_date %></td>
+          <td><%= User.find(proposal.user_id_vendor).username %></td>
+          <td><%= User.find(proposal.user_id_vendor).phone %></td>
+          <td><a href="/proposals/<%= proposal.id %>" class="btn btn-xs btn-primary">
+                <i class="fa fa-search-plus"></i>
+              </a></td>
+        </tr>
+    <% end %>
+      </table>
+    </div>
+
     <!-- You can ignore the following. It's a quick and dirty example of how to get a Pinterest-style layout with quick search. -->
     <!-- JavaScript for Isotope layout and quicksearch -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.1.8/imagesloaded.pkgd.min.js"></script>
@@ -155,12 +188,12 @@
       <h2>Won proposals</h2>
       <table class="table table-striped">
         <tr>
-          <th>Contact</th>
+          <th>Customer</th>
           <th>Address</th>
-          <th>Requested weekly bill</th>
+          <th>Phone</th>
           <th>Start date</th>
           <th>End date</th>
-          <th>Make a bid</th>
+          <th>Review contract</th>
         </tr>
 
     <% @proposal_won.each do |proposal| %>
@@ -168,11 +201,11 @@
         <tr>
           <td><%= proposal.user.username %></td>
           <td><%= proposal.user.address %></td>
-          <td><%= proposal.user_request_val %></td>
+          <td><%= proposal.user.phone %></td>
           <td><%= proposal.start_date %></td>
           <td><%= proposal.end_date %></td>
-          <td><a href="/proposals/<%= proposal.id %>/edit" class="btn btn-warning">
-                <i class="fa fa-edit"></i>
+          <td><a href="/proposals/<%= proposal.id %>" class="btn btn-primary">
+                <i class="fa fa-search-plus"></i>
               </a></td>
         </tr>
     <% end %>

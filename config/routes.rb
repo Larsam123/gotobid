@@ -101,6 +101,11 @@ Rails.application.routes.draw do
 
   # DELETE
   get "/delete_proposal/:id", :controller => "proposals", :action => "destroy"
+
+  # CONFIRM - confirms the vendor to win the contract
+  get "/proposals/:id/select_confirm/:user_id",    :controller => "proposals", :action => "select_confirm"
+  get "/proposals/:id/select/:user_id",    :controller => "proposals", :action => "select"
+
   #------------------------------
 
   # Routes for the Proposalprods resource:

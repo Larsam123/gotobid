@@ -1,4 +1,4 @@
-<% if @user.vendor == false %>
+<% if @user.vendor == false and @proposal.win == false %>
 
 <!-- Responsive panel example-->
 
@@ -208,7 +208,7 @@
 
 <hr>
 
- <div class="panel panel-default col-sm-12 col-md-offset-2 col-md-8">
+ <div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading">Current Bids</div>
 
@@ -217,18 +217,22 @@
           <tr>
             <th>Vendor</th>
             <th>Address</th>
+            <th>Product</th>
+            <th>Requested Price</th>
             <th>Vendor Price</th>
+            <th>Select this vendor</th>
           </tr>
 
         <% @proposal.proposalprods.each do |pp| %>
           <tr>
             <th><%= pp.user.username %></th>
             <th><%= pp.user.address %></th>
-
+            <th><%= pp.product.product_desc %></th>
+            <th>$<%= pp.user_request_price.to_f.round(2) %></th>
             <th>$<%= pp.proposal_rfp_price.to_f.round(2) %></th>
             <th>
-              <a href="/proposalprods/<%= pp.id %>/edit">
-                <i class="fa fa-edit"></i>
+              <a href="/proposals/<%= pp.proposal.id %>/select_confirm/<%= pp.user_id %>">
+                <i class="fa fa-thumbs-o-up"></i>
               </a>
             </th>
           </tr>
@@ -238,8 +242,91 @@
 
 
 
-<!-- Vendor View -->
-<% else %>
+
+<!-- Closed contract view for user -->
+<% elsif @user.vendor == false and @proposal.win == true %>
+
+<div class="row">
+  <div class="col-sm-12 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Your Contract</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <dl class="dl-horizontal">
+
+              <dt>User</dt>
+              <dd><%= @proposal.user.username %></dd>
+
+              <dt>User email</dt>
+              <dd><%= @proposal.user.email %></dd>
+
+              <dt>Start date</dt>
+              <dd><%= @proposal.start_date %></dd>
+
+              <dt>End date</dt>
+              <dd><%= @proposal.end_date %></dd>
+
+              <dt>Vendor</dt>
+              <dd><%= User.find(@proposal.user_id_vendor).username %></dd>
+
+              <dt>Vendor phone</dt>
+              <dd><%= User.find(@proposal.user_id_vendor).phone %></dd>
+
+            </dl>
+
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="btn-group btn-group-justified">
+        <a href="/proposals" class="btn btn-primary">
+          <i class="fa fa-chevron-left"></i>
+        </a>
+      </div>
+
+
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Contracted products</div>
+
+        <!-- Table -->
+        <table class="table">
+          <tr>
+            <th>Product</th>
+            <th>Color</th>
+            <th>Size</th>
+            <th>Material</th>
+            <th>Quantity</th>
+            <th>Contract price</th>
+          </tr>
+
+        <% @proposal.proposalprods.each do |pp| %>
+          <tr>
+            <th><%= pp.product.product_desc %></th>
+            <th><%= pp.color.color_desc %></th>
+            <th><%= pp.size.size_desc %></th>
+            <th><%= pp.material.material_desc %></th>
+            <th><%= pp.quantity %></th>
+            <th>$<%= pp.proposal_rfp_price.round(2) %></th>
+          </tr>
+        <% end %>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Vendor View Open Proposals -->
+<% elsif @user.vendor == true and @proposal.win == false %>
 
 <div class="row">
   <div class="col-sm-12 col-md-offset-2 col-md-8">
@@ -322,7 +409,87 @@
 </div>
 
 
+<!-- Vendor View if won contract -->
+<% elsif @user.vendor == true and @proposal.win == true and @user.id == @proposal.user_id_vendor %>
 
+<div class="row">
+  <div class="col-sm-12 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Your Contract</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <dl class="dl-horizontal">
+
+              <dt>Customer</dt>
+              <dd><%= @proposal.user.username %></dd>
+
+              <dt>Customer email</dt>
+              <dd><%= @proposal.user.email %></dd>
+
+              <dt>Customer address</dt>
+              <dd><%= @proposal.user.address %></dd>
+
+              <dt>Customer phone</dt>
+              <dd><%= @proposal.user.phone %></dd>
+
+              <dt>Start date</dt>
+              <dd><%= @proposal.start_date %></dd>
+
+              <dt>End date</dt>
+              <dd><%= @proposal.end_date %></dd>
+
+              <dt>Winning vendor</dt>
+              <dd><%= User.find(@proposal.user_id_vendor).username %></dd>
+
+            </dl>
+
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="btn-group btn-group-justified">
+        <a href="/proposals" class="btn btn-primary">
+          <i class="fa fa-chevron-left"></i>
+        </a>
+      </div>
+
+
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Contracted products</div>
+
+        <!-- Table -->
+        <table class="table">
+          <tr>
+            <th>Product</th>
+            <th>Color</th>
+            <th>Size</th>
+            <th>Material</th>
+            <th>Quantity</th>
+            <th>Contract price</th>
+          </tr>
+
+        <% @proposal.proposalprods.each do |pp| %>
+          <tr>
+            <th><%= pp.product.product_desc %></th>
+            <th><%= pp.color.color_desc %></th>
+            <th><%= pp.size.size_desc %></th>
+            <th><%= pp.material.material_desc %></th>
+            <th><%= pp.quantity %></th>
+            <th>$<%= pp.proposal_rfp_price.round(2) %></th>
+          </tr>
+        <% end %>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <% end %>
 <!-- End responsive panel example -->

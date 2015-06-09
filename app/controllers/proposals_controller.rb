@@ -16,7 +16,7 @@ class ProposalsController < ApplicationController
 
     if  current_user.id != nil and current_user.vendor != true
       @proposal_won = current_user.proposals.where(:win => true).all
-    elsif current_user.vendor == true
+    elsif current_user.id != nil and current_user.vendor == true
       @proposal_won = Proposal.where(:win => true, :user_id_vendor => current_user.id ).all
     end
 
@@ -81,5 +81,24 @@ class ProposalsController < ApplicationController
     @proposal.destroy
 
     redirect_to "/proposals", :notice => "Proposal deleted."
+  end
+
+
+  def select_confirm
+    @proposal = Proposal.find(params[:id])
+
+    @vendor_id = params[:user_id]
+
+    @vendor = User.find(params[:user_id]).username
+  end
+
+  def select
+    @proposal = Proposal.find(params[:id])
+
+    @proposal.win = true
+    @proposal.user_id_vendor = params[:user_id]
+    @proposal.save
+
+    redirect_to "/proposals", :notice => "Congratulations, you just signed a contract!"
   end
 end

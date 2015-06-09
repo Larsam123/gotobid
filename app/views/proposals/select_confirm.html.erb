@@ -1,0 +1,9 @@
+<h1>
+  Are you sure you want to confirm <%= @vendor %> as your vendor?
+</h1><br/>
+
+<p>Remember, once you hit the confirm button, you are locked into a contract</p>
+
+  <a href="/proposals/<%= @proposal.id %>/select/<%= @vendor_id %>" class="btn btn-primary">
+    Confirm
+  </a>
