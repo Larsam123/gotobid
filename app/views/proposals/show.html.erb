@@ -58,7 +58,6 @@
         <!-- Table -->
         <table class="table">
           <tr>
-          <th>userid</th>
             <th>Product</th>
             <th>Color</th>
             <th>Size</th>
@@ -69,7 +68,6 @@
 
         <% @proposal.proposalprods.each do |pp| %>
           <tr>
-          <th><%= pp.user_id != nil %></th>
             <th><%= pp.product.product_desc %></th>
             <th><%= pp.color.color_desc %></th>
             <th><%= pp.size.size_desc %></th>
