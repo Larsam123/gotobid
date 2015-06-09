@@ -38,6 +38,7 @@ class ProposalprodsController < ApplicationController
   def update
     @proposalprods = Proposalprod.find(params[:id])
 
+    @proposalprods.user_id = params[:user_id]
     @proposalprods.product_id = params[:product_id]
     @proposalprods.size_id = params[:size_id]
     @proposalprods.color_id = params[:color_id]

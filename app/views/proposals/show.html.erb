@@ -206,18 +206,46 @@
   </div>
 </div>
 
+<hr>
+
+ <div class="panel panel-default col-sm-12 col-md-offset-2 col-md-8">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Current Bids</div>
+
+        <!-- Table -->
+        <table class="table">
+          <tr>
+            <th>Vendor</th>
+            <th>Address</th>
+            <th>Vendor Price</th>
+          </tr>
+
+        <% @proposal.proposalprods.each do |pp| %>
+          <tr>
+            <th><%= pp.user.username %></th>
+            <th><%= pp.user.address %></th>
+
+            <th>$<%= pp.proposal_rfp_price.to_f.round(2) %></th>
+            <th>
+              <a href="/proposalprods/<%= pp.id %>/edit">
+                <i class="fa fa-edit"></i>
+              </a>
+            </th>
+          </tr>
+        <% end %>
+        </table>
+      </div>
 
 
 
 <!-- Vendor View -->
 <% else %>
 
-
 <div class="row">
   <div class="col-sm-12 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Your Proposal</h3>
+        <h3 class="panel-title">Prospect's Proposal</h3>
       </div>
       <div class="panel-body">
         <div class="row">
@@ -252,13 +280,6 @@
           <i class="fa fa-chevron-left"></i>
         </a>
 
-        <a href="/proposals/<%= @proposal.id %>/edit" class="btn btn-warning">
-          <i class="fa fa-edit"></i>
-        </a>
-
-        <a href="/delete_proposal/<%= @proposal.id %>" class="btn btn-danger" rel="nofollow">
-          <i class="fa fa-trash-o"></i>
-        </a>
       </div>
 
 
