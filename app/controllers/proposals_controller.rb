@@ -1,5 +1,14 @@
 class ProposalsController < ApplicationController
 
+
+before_action :ensure_sign_in
+
+def ensure_sign_in
+  if current_user.present? == false
+    redirect_to '/users/sign_in', :alert => "Please sign in"
+  end
+end
+
   before_action :ensure_user, :only => [:update, :destroy, :show, :edit]
 
   def ensure_user

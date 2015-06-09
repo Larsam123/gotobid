@@ -75,7 +75,7 @@
             <th><%= pp.size.size_desc %></th>
             <th><%= pp.material.material_desc %></th>
             <th><%= pp.quantity %></th>
-            <th>$<%= pp.user_request_price.round(2) %></th>
+            <th>$<%= pp.user_request_price.to_f.round(2) %></th>
             <th>
               <a href="/proposalprods/<%= pp.id %>/edit">
                 <i class="fa fa-edit"></i>

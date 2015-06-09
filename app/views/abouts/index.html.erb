@@ -17,12 +17,20 @@
 
 
 
-
+<% if @user.present? %>
 <div class="btn-group btn-group-justified btn-lg" role="group" aria-label="...">
-
   <div class="btn-group" role="group">
     <a href="/proposals/new">
       <button type="button" class="btn btn-primary btn-lg">Request a Bid</button>
     </a>
   </div>
 
+<% else %>
+<div class="btn-group btn-group-justified btn-lg" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <a href="/users/sign_in">
+      <button type="button" class="btn btn-primary btn-lg">Sign in</button>
+    </a>
+  </div>
+
+<% end %>
