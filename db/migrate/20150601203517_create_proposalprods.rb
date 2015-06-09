@@ -10,9 +10,9 @@ class CreateProposalprods < ActiveRecord::Migration
       t.float :user_request_price
       t.float :proposal_rfp_price
       t.integer :material_id
+      t.integer :user_id
 
       t.timestamps
-
     end
   end
 end

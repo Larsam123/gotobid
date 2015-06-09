@@ -4,10 +4,6 @@ class ProposalsController < ApplicationController
 
   def ensure_user
     @proposal = Proposal.find(params[:id])
-
-    if  @proposal.user_id != current_user.id
-      redirect_to root_url, :alert => "Please sign in"
-    end
   end
 
   def index
@@ -31,6 +27,8 @@ class ProposalsController < ApplicationController
   def show
     @proposal = Proposal.find(params[:id])
     @proposalprods = Proposalprod.new
+
+    @user = current_user
   end
 
   def new
@@ -61,18 +59,17 @@ class ProposalsController < ApplicationController
 
   def update
     @proposal = Proposal.find(params[:id])
-
-    @proposal.proposal_id = params[:proposal_id]
-    @proposal.user_id = params[:user_id]
-    @proposal.user_id_vendor = params[:user_id_vendor]
-    @proposal.win = params[:win]
+    @proposal.proposal_id = @proposal.proposal_id
+    @proposal.user_id = current_user.id
+    @proposal.user_id_vendor = @proposal.user_id_vendor
+    @proposal.win = @proposal.win
     @proposal.user_request_val = params[:user_request_val]
-    @proposal.proposal_rfp_val = params[:proposal_rfp_val]
+    @proposal.proposal_rfp_val = @proposal.proposal_rfp_val
     @proposal.start_date = params[:start_date]
     @proposal.end_date = params[:end_date]
 
     if @proposal.save
-      redirect_to "/proposal", :notice => "Proposal updated successfully."
+      redirect_to "/proposals/#{@proposal.id}", :notice => "Proposal updated successfully."
     else
       render 'edit'
     end

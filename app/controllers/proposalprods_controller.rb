@@ -31,6 +31,8 @@ class ProposalprodsController < ApplicationController
 
   def edit
     @proposalprods = Proposalprod.find(params[:id])
+
+    @user = current_user
   end
 
   def update
