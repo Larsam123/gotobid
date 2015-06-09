@@ -17,7 +17,7 @@
 
 
 
-<% if @user.present? %>
+<% if @user.present? and @user.vendor == false %>
 <div class="btn-group btn-group-justified btn-lg" role="group" aria-label="...">
   <div class="btn-group" role="group">
     <a href="/proposals/new">
@@ -25,11 +25,19 @@
     </a>
   </div>
 
+<% elsif @user.present? and @user.vendor == true %>
+<div class="btn-group btn-group-justified btn-lg" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <a href="/proposals/">
+      <button type="button" class="btn btn-primary btn-lg">Review local RFP requests</button>
+    </a>
+  </div>
+
 <% else %>
 <div class="btn-group btn-group-justified btn-lg" role="group" aria-label="...">
   <div class="btn-group" role="group">
     <a href="/users/sign_in">
-      <button type="button" class="btn btn-primary btn-lg">Sign in</button>
+      <button type="button" class="btn btn-primary btn-lg">Please sign in</button>
     </a>
   </div>
 
