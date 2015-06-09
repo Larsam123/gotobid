@@ -51,7 +51,6 @@
 
         <ul class="nav navbar-nav navbar-right">
           <% if current_user.present? %>
-            <% if current_user.vendor == true %><li><a href="/abouts">Vendor</a></li><% end %>
             <li><a href="/users/edit">Edit user info</a></li>
             <li><a href="/users/sign_out" data-method="delete" rel="nofollow">Sign out</a></li>
           <% else %>

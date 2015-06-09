@@ -5,7 +5,7 @@ class ProposalsController < ApplicationController
   def ensure_user
     @proposal = Proposal.find(params[:id])
 
-    if  @proposal.user_id == nil
+    if  @proposal.user_id != current_user.id
       redirect_to root_url, :alert => "Please sign in"
     end
   end
@@ -24,15 +24,13 @@ class ProposalsController < ApplicationController
       @proposal_won = Proposal.where(:win => true, :user_id_vendor => current_user.id ).all
     end
 
+
     @user = current_user
   end
 
   def show
     @proposal = Proposal.find(params[:id])
     @proposalprods = Proposalprod.new
-
-    @user = current_user
-
   end
 
   def new
