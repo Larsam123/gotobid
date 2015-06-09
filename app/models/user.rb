@@ -10,5 +10,6 @@ class User < ActiveRecord::Base
   validates :phone, :presence => true
 
   has_many :proposals
+  has_many :proposalprods
 
 end

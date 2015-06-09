@@ -58,6 +58,7 @@
         <!-- Table -->
         <table class="table">
           <tr>
+          <th>userid</th>
             <th>Product</th>
             <th>Color</th>
             <th>Size</th>
@@ -68,6 +69,7 @@
 
         <% @proposal.proposalprods.each do |pp| %>
           <tr>
+          <th><%= pp.user_id != nil %></th>
             <th><%= pp.product.product_desc %></th>
             <th><%= pp.color.color_desc %></th>
             <th><%= pp.size.size_desc %></th>
@@ -134,7 +136,7 @@
             <label for="product_id" class="col-sm-2 control-label">
               Product
             </label>
-            <div class="col-sm-10">
+            <div class="col-sm-10 input-group-sm">
                <%= select_tag(:product_id, options_from_collection_for_select(Product.all, :product_id, :product_desc, @proposalprods.product_id), :class => "form-control") %>
             </div>
           </div>
@@ -144,7 +146,7 @@
             <label for="size_id" class="col-sm-2 control-label">
               Size
             </label>
-            <div class="col-sm-10">
+            <div class="col-sm-10 input-group-sm">
                <%= select_tag(:size_id, options_from_collection_for_select(Size.all, :size_id, :size_desc, @proposalprods.size_id), :class => "form-control") %>
             </div>
           </div>
@@ -154,7 +156,7 @@
             <label for="color_id" class="col-sm-2 control-label">
               Color
             </label>
-            <div class="col-sm-10">
+            <div class="col-sm-10 input-group-sm">
                <%= select_tag(:color_id, options_from_collection_for_select(Color.all, :color_id, :color_desc, @proposalprods.color_id), :class => "form-control") %>
             </div>
           </div>
@@ -164,7 +166,7 @@
             <label for="material_id" class="col-sm-2 control-label">
               Material
             </label>
-            <div class="col-sm-10">
+            <div class="col-sm-10 input-group-sm">
                <%= select_tag(:material_id, options_from_collection_for_select(Material.all, :material_id, :material_desc, @proposalprods.material_id), :class => "form-control") %>
            </div>
           </div>
@@ -175,7 +177,7 @@
             <label for="quantity" class="col-sm-2 control-label">
               Quantity
             </label>
-            <div class="col-sm-10">
+            <div class="col-sm-10 input-group-sm">
               <input type="text" id="quantity" name="quantity" placeholder="Quantity" class="form-control" value="<%= @proposalprods.quantity %>">
             </div>
           </div>
@@ -185,7 +187,7 @@
             <label for="user_request_price" class="col-sm-2 control-label">
               User request price
             </label>
-            <div class="col-sm-10">
+            <div class="col-sm-10 input-group-sm">
               <input type="text" id="user_request_price" name="user_request_price" placeholder="User request price" class="form-control" value="<%= @proposalprods.user_request_price %>">
             </div>
           </div>
@@ -223,20 +225,23 @@
             <th>Select this vendor</th>
           </tr>
 
-        <% @proposal.proposalprods.each do |pp| %>
-          <tr>
-            <th><%= pp.user.username %></th>
-            <th><%= pp.user.address %></th>
-            <th><%= pp.product.product_desc %></th>
-            <th>$<%= pp.user_request_price.to_f.round(2) %></th>
-            <th>$<%= pp.proposal_rfp_price.to_f.round(2) %></th>
-            <th>
-              <a href="/proposals/<%= pp.proposal.id %>/select_confirm/<%= pp.user_id %>">
-                <i class="fa fa-thumbs-o-up"></i>
-              </a>
-            </th>
-          </tr>
-        <% end %>
+          <% @proposal.proposalprods.each do |pp| %>
+            <% unless pp.user.nil? %>
+              <tr>
+                <th><%= pp.user.username %></th>
+                <th><%= pp.user.address %></th>
+                <th><%= pp.product.product_desc %></th>
+                <th>$<%= pp.user_request_price.to_f.round(2) %></th>
+                <th>$<%= pp.proposal_rfp_price.to_f.round(2) %></th>
+                <th>
+                  <a href="/proposals/<%= pp.proposal.id %>/select_confirm/<%= pp.user_id %>">
+                    <i class="fa fa-thumbs-o-up"></i>
+                  </a>
+                </th>
+              </tr>
+            <% end %>
+          <% end %>
+
         </table>
       </div>
 

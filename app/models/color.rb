@@ -1,5 +1,5 @@
 class Color < ActiveRecord::Base
 
-  has_many :proposalprod
+  has_many :proposalprods
 
 end

@@ -1,5 +1,5 @@
 class Size < ActiveRecord::Base
 
-  has_many :proposalprod
+  has_many :proposalprods
 
 end
